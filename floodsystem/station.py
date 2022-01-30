@@ -5,7 +5,7 @@
 for manipulating/modifying station data
 
 """
-
+from numpy import append
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -50,11 +50,12 @@ class MonitoringStation:
 
 
 def inconsistent_typical_range_stations(stations):
-    counter = 0
+    inconsistent = list()
     for station in stations:
         if station.typical_range_consistent():
             pass
         else:
-            counter +=1
+            inconsistent.append(station.name)
+    return inconsistent
 
 
